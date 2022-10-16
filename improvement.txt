@@ -1,0 +1,6 @@
+- Viterbi algorithm
+- Test IO scheme instead of BIO
+- Change BERT with other model RoBERTa, XLNet
+- Check if the result is worse with longer sentence
+- Model predict each token independently: how to fix this?
+- Generative QA for multi span
