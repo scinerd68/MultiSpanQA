@@ -91,7 +91,7 @@ def normalize_answer(s):
 
 
 if __name__ == "__main__":
-    golds = read_gold("Data/MultiSpanQA_data/valid.json")
+    golds = read_gold("data/MultiSpanQA_data/valid.json")
     for k,v in golds.items():
         golds[k] = set(map(lambda x: normalize_answer(x), v))
     preds = read_pred("results/pred_answers_no_I_beginning_roberta_v1.json")
@@ -116,12 +116,19 @@ if __name__ == "__main__":
 
     fig, ax = plt.subplots(2, 2)
     fig.tight_layout(pad=1.0)
-    ax[0, 0].hist(correct_answers_length, bins=20)
+    ax[0, 0].hist(correct_answers_length, bins=20, density=True)
     ax[0, 0].set_title('Correct Answers Length', size=10)
+    ax[0, 0].set_ylim([0, 1])
 
-    ax[0, 1].hist(missing_answers_length, bins=20)
+    ax[0, 1].hist(missing_answers_length, bins=20, density=True)
     ax[0, 1].set_title('Missing Answers Length', size=10)
+    ax[0, 1].set_ylim([0, 1])
 
-    ax[1, 0].hist(incorrect_answers_length, bins=20)
+    ax[1, 0].hist(incorrect_answers_length, bins=20, density=True)
     ax[1, 0].set_title('Incorrect Answers Length', size=10)
+    ax[1, 0].set_ylim([0, 1])
     plt.show()
+
+    print(max(correct_answers_length))
+    print(max(missing_answers_length))
+    print(max(incorrect_answers_length))
