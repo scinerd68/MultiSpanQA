@@ -24,7 +24,6 @@ if __name__ == "__main__":
     model = model.to(device)
     # Create dataset
     train_dataset = create_dataset("D:/ComputerScience/BachKhoa/NLPLab/MultiSpanQA/data/MultiSpanQA_data/train.json",
-                                   "D:/ComputerScience/BachKhoa/NLPLab/MultiSpanQA/data/MultiSpanQA_data/valid.json",
                                    "roberta-base")
     dataloader = DataLoader(train_dataset, batch_size=1, collate_fn=convert_to_tensor, shuffle=True)
     # Train
@@ -54,10 +53,10 @@ if __name__ == "__main__":
                 print("Batch {:} / {:}".format(batch_idx + 1, len(dataloader)))
                 print("Loss:", round(loss.item(), 2))
                 torch.save(model, "/models/test.pth")
-            # break
+            break
         loss_of_epoch /= len(dataloader)
         print(f"\n------- Epoch {epoch + 1} -------")
         print(f"Training Loss: {loss_of_epoch}")
         print("-----------------------")
         print()
-        # break
+        break

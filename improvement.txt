@@ -4,3 +4,5 @@
 - Check if the result is worse with longer sentence
 - Model predict each token independently: how to fix this?
 - Generative QA for multi span
+- CornerNet like implementation (predict start end then match for each span)
+- Multi task: answer-generation + predict start end at the same time, match span based on generated answer and predict start end

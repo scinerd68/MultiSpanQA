@@ -94,7 +94,7 @@ if __name__ == "__main__":
     golds = read_gold("Data/MultiSpanQA_data/valid.json")
     for k,v in golds.items():
         golds[k] = set(map(lambda x: normalize_answer(x), v))
-    preds = read_pred("predict_files/pred_answers_no_I_beginning_roberta_v1.json")
+    preds = read_pred("results/pred_answers_no_I_beginning_roberta_v1.json")
     for k,v in preds.items():
         preds[k] = set(map(lambda x: normalize_answer(x), v))
 
