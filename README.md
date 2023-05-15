@@ -10,4 +10,4 @@ Model the problem as a Sequence Tagging Problem with BIO tags:
 - O: Token outside of the answer span
 
 Architecture (Label is either B, I, or O)
-<img src="img/multispan_qa.png" alt="image of model architecture">
+<img src="img/multispan_qa.jpg" alt="image of model architecture">
